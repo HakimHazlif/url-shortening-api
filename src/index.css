@@ -1,0 +1,54 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+
+@layer components {
+  .bg-boost {
+    @apply sm:bg-boost-desktop bg-boost-mobile bg-dark-violet-100 bg-cover h-[300px] w-full
+  }
+
+  .inputField {
+    @apply w-full px-5 py-4 border border-solid border-gray rounded-lg placeholder:text-gray placeholder:font-semibold placeholder:text-xl outline-none
+  }
+
+  .text-li {
+    @apply text-base text-grayish-violet font-medium cursor-pointer hover:text-white duration-200
+  }
+
+  .button-elm {
+    @apply bg-cyan hover:opacity-70 duration-200 py-3 text-white font-bold text-center text-2xl cursor-pointer
+  }
+
+  .text-title {
+    @apply lg:text-6xl md:text-5xl sm:text-4xl text-5xl font-bold font-poppins lg:leading-tight md:leading-tight sm:leading-tight max-sm:leading-tight text-dark-violet-100
+  }
+
+  .text-p {
+    @apply text-grayish-violet font-medium text-xl leading-9 sm:leading-8 font-poppins 
+  }
+}
+
+@layer utilities {
+  .padding-l {
+    @apply pl-2 sm:pl-9 md:pl-20 lg:pl-32
+  }
+
+  .padding-x {
+    @apply px-2 sm:px-9 md:px-20 lg:pl-32
+  }
+}
+
