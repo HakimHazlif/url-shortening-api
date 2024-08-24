@@ -1,16 +1,10 @@
 import React from 'react'
 
-const Button = ({children, onClick}) => {
-  function handleScrollToGetStart() {
-    window.location.href = '#url-link'
-  }
+const Button = ({children, onClick, styles}) => {
 
   return (
     <button className={`button-elm whitespace-nowrap  
-      ${children === 'Get Started' || children === 'Sign Up'
-        ? 'px-20 md:px-12 rounded-full'
-        : 'w-full rounded-lg sm:w-1/5'
-      }
+      ${styles}
     `}
       onClick={onClick}
     >
@@ -20,3 +14,9 @@ const Button = ({children, onClick}) => {
 }
 
 export default Button
+
+/*
+children === 'Get Started' || children === 'Sign Up'
+        ? 'px-20 md:px-12 rounded-full'
+        : 'w-full rounded-lg sm:w-1/5'
+*/

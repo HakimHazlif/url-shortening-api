@@ -30,7 +30,7 @@ html {
   }
 
   .button-elm {
-    @apply bg-cyan hover:opacity-70 duration-200 py-3 text-white font-bold text-center text-2xl cursor-pointer
+    @apply bg-cyan hover:opacity-70 duration-200 text-white font-bold text-center text-lg sm:text-xl cursor-pointer
   }
 
   .text-title {

@@ -14,6 +14,7 @@ const Intro = ({ handleClick }) => {
         <Button
           children={'Get Started'}
           onClick={handleClick}
+          styles={'px-20 md:px-12 py-3 rounded-full'}
         />
       </div>
       <img 

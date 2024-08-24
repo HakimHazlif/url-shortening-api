@@ -1,7 +1,8 @@
 import { useRef, useState } from 'react'
 import Button from '../components/Button'
+import ShortenLinkCard from '../components/shortenLinkCard'
 
-const Shortener = ({ urlLink, setUrlLink }) => {
+const Shortener = ({ setUrlLink, shortenList }) => {
   const [isEmpty, setIsEmpty] = useState(false)
   const [validURL, setValidURL] = useState(true)
   const [urlInput, setUrlInput] = useState('')
@@ -62,12 +63,28 @@ const Shortener = ({ urlLink, setUrlLink }) => {
           <Button 
             children={'Shorten it!'}
             onClick={handleClick}
+            styles={'w-full sm:w-[200px] rounded-lg py-3'}
           />
         </div>
         <div className='mt-2 -mb-2'>
           {isEmpty && <em className='text-red text-base'>Please add a link</em>}
           {invalidMessage && <em className='text-red text-base'>Invalid link, please add a correct link</em>}
         </div>
+      </div>
+      <div className='flex flex-col gap-6 w-full mt-6'>
+        {shortenList.length !== 0 && 
+          shortenList.map((link, indexLink) => {
+            return (
+              <ShortenLinkCard 
+                key={indexLink}
+                shortLink={link.result_url
+                }
+                longLink={link.urlLink
+                }
+              />
+            )
+          })
+        }
       </div>
     </div>
   )

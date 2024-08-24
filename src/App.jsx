@@ -8,8 +8,8 @@ import Boost from './sections/Boost';
 import Footer from './sections/Footer';
 
 function App() {
-  const [shortURL, setShortURL] = useState('')
   const [urlLink, setUrlLink] = useState('')
+  const [shortenList, setShortenList] = useState([])
 
   function handleScrollToGetStart() {
     window.location.href = '#url-link'
@@ -19,31 +19,37 @@ function App() {
     async function getShortURL() {
       const API_KEY = import.meta.env.VITE_SOCIALDATA_API_KEY
 
-
       const url = 'https://url-shortener-service.p.rapidapi.com/shorten';
       const data = new FormData();
-      data.append('url', 'https://google.com/');
 
-      const options = {
-        method: 'POST',
-        headers: {
-          'x-rapidapi-key': `${API_KEY}`,
-          'x-rapidapi-host': 'url-shortener-service.p.rapidapi.com'
-        },
-        body: data
-      };
+      if (urlLink !== '') {
+        data.append('url', urlLink);
+        const options = {
+          method: 'POST',
+          headers: {
+            'x-rapidapi-key': `${API_KEY}`,
+            'x-rapidapi-host': 'url-shortener-service.p.rapidapi.com'
+          },
+          body: data
+        };
 
-      try {
-        const response = await fetch(url, options);
-        const result = await response.json();
-        console.log(result);
-      } catch (error) {
-        console.error(error);
+        try {
+          const response = await fetch(url, options);
+          const result = await response.json();
+
+          setShortenList([...shortenList, {
+            ...result,
+            urlLink
+          }])
+          console.log(result);
+          console.log(shortenList);
+        } catch (error) {
+          console.error(error);
+        }
       }
-      
     }
-    //getShortURL()
-  }, [])
+    getShortURL()
+  }, [urlLink])
 
   return (
     <div className=''>
@@ -52,7 +58,7 @@ function App() {
         <Intro handleClick={handleScrollToGetStart}/>
       </header>
       <main className='flex flex-col gap-32'>
-        <Shortener urlLink={urlLink} setUrlLink={setUrlLink}/>
+        <Shortener urlLink={urlLink} setUrlLink={setUrlLink} shortenList={shortenList}/>
         <div className='flex flex-col gap-32'>
           <Advance />
           <Cards />
