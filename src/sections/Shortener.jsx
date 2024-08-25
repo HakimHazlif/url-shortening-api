@@ -56,7 +56,7 @@ const Shortener = ({ setUrlLink, shortenList }) => {
                 setInvalidMessage(false)
               }}
             />
-            <div className='mt-2 -mb-4'>
+            <div className='mt-2 -mb-4 max-sm:mb-2'>
               {isEmpty && <em className='text-red text-base'>Please add a link</em>}
               {invalidMessage && <em className='text-red text-base'>Invalid link, please add a correct link</em>}
             </div>
@@ -69,7 +69,7 @@ const Shortener = ({ setUrlLink, shortenList }) => {
         </div>
         
       </div>
-      <div className='flex flex-col gap-6 w-full sm:mt-24 mt-40'>
+      <div className='flex flex-col gap-6 w-full sm:mt-24 mt-44'>
         {shortenList.length !== 0 && 
           shortenList.map((link, indexLink) => {
             return (

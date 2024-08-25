@@ -49,11 +49,11 @@ html {
 
 @layer utilities {
   .padding-l {
-    @apply pl-2 sm:pl-9 md:pl-20 lg:pl-32
+    @apply pl-2 sm:pl-9 md:pl-14 lg:pl-24 xl:pl-32
   }
 
   .padding-x {
-    @apply px-2 sm:px-9 md:px-20 lg:pl-32
+    @apply px-2 sm:px-9 md:px-14 lg:px-24 xl:px-32
   }
 }
 

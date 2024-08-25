@@ -12,7 +12,7 @@ const Nav = () => {
 
   return (
     <nav className='py-12 padding-x max-sm:px-6 flex justify-between items-center mb-10 max-sm:pt-6'>
-      <div className='flex items-center lx:gap-16 lg:gap-14 md:gap-12 gap-10'>
+      <div className='flex items-center lx:gap-16 lg:gap-14 md:gap-6 gap-10'>
         <img 
           src={logo}
           alt="logo" 
