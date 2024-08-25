@@ -11,7 +11,7 @@ function App() {
   const [urlLink, setUrlLink] = useState('')
   const [shortenList, setShortenList] = useState([])
 
-  function handleScrollToGetStart() {
+  function handleGetStart() {
     window.location.href = '#url-link'
   }
 
@@ -41,6 +41,7 @@ function App() {
             ...result,
             urlLink
           }])
+          setUrlLink('')
           console.log(result);
           console.log(shortenList);
         } catch (error) {
@@ -55,15 +56,17 @@ function App() {
     <div className=''>
       <header>
         <Nav />
-        <Intro handleClick={handleScrollToGetStart}/>
+        <Intro handleClick={handleGetStart}/>
       </header>
-      <main className='flex flex-col gap-32'>
-        <Shortener urlLink={urlLink} setUrlLink={setUrlLink} shortenList={shortenList}/>
-        <div className='flex flex-col gap-32'>
-          <Advance />
-          <Cards />
+      <main className='flex flex-col gap-52 bg-slate-100'>
+        <div className='padding-x flex flex-col gap-24'>
+          <Shortener urlLink={urlLink} setUrlLink={setUrlLink} shortenList={shortenList}/>
+          <div className='flex flex-col gap-24'>
+            <Advance /> 
+            <Cards />
+          </div>
         </div>
-        <Boost handleClick={handleScrollToGetStart}/>
+        <Boost handleClick={handleGetStart}/>
       </main>
       <Footer />
     </div>

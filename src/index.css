@@ -52,3 +52,59 @@ html {
   }
 }
 
+/*
+@media (prefers-reduced-motion: no-preference) {
+  .bbb {
+    animation: fade-in 5s ease-in;
+    animation-timeline: view();
+    animation-range: entry 0 cover 40%;
+  }
+
+  @keyframes fade-in {
+    from {
+      scale: 0.5;
+      opacity: 0;
+    }
+    to {
+      scale: 1;
+      opacity: 1;
+    }
+  }
+}
+*/
+/*
+@media (prefers-reduced-motion: no-preference) {
+  .bbb {
+    animation: fade-in ease-in-out;
+    animation-timeline: view();
+    animation-range: entry 0;
+  }
+
+  @keyframes fade-in {
+    from {
+      transform: translateX(-100%);
+    }
+    to {
+      transform: translateX(0%);
+    }
+  }
+}
+*/
+/*
+@media (prefers-reduced-motion: no-preference) {
+  .bbb {
+    animation: fade-in 5s linear;
+    animation-timeline: view();
+    animation-range: entry 0;
+  }
+
+  @keyframes fade-in {
+    from {
+      clip-path: inset(100% 100% 0 0);
+    }
+    to {
+      clip-path: inset(0 0 0 0);
+    }
+  }
+}
+*/
