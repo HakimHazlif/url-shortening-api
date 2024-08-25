@@ -52,6 +52,10 @@ html {
   }
 }
 
+.scroll {
+  scrollbar-color: aqua;
+}
+
 /*
 @media (prefers-reduced-motion: no-preference) {
   .bbb {

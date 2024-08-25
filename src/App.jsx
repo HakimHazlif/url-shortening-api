@@ -59,7 +59,7 @@ function App() {
         <Intro handleClick={handleGetStart}/>
       </header>
       <main className='flex flex-col gap-52 bg-slate-100'>
-        <div className='padding-x flex flex-col gap-24'>
+        <div className='padding-x flex flex-col gap-32'>
           <Shortener urlLink={urlLink} setUrlLink={setUrlLink} shortenList={shortenList}/>
           <div className='flex flex-col gap-24'>
             <Advance /> 

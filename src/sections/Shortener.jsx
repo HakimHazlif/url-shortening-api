@@ -39,8 +39,8 @@ const Shortener = ({ setUrlLink, shortenList }) => {
   }
 
   return (
-    <div id='get-sterted' className=' w-full'>
-      <div className='w-full bg-shorten-mobile sm:bg-shorten-desktop bg-cover bg-dark-violet-100 px-6 py-8 sm:p-10 rounded-lg '>
+    <div id='get-sterted' className=' w-full relative'>
+      <div className='w-full bg-shorten-mobile sm:bg-shorten-desktop bg-cover bg-dark-violet-100 px-6 py-8 sm:p-10 rounded-lg absolute -top-[70px]'>
         <div className='flex flex-col sm:flex-row gap-4'>
           <div className='w-full'>
             <label htmlFor="url-link" className='hidden'>URL link:</label>
@@ -71,7 +71,7 @@ const Shortener = ({ setUrlLink, shortenList }) => {
           {invalidMessage && <em className='text-red text-base'>Invalid link, please add a correct link</em>}
         </div>
       </div>
-      <div className='flex flex-col gap-6 w-full mt-6'>
+      <div className='flex flex-col gap-6 w-full sm:mt-24 mt-40'>
         {shortenList.length !== 0 && 
           shortenList.map((link, indexLink) => {
             return (
