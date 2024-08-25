@@ -4,27 +4,24 @@ import ShortenLinkCard from '../components/shortenLinkCard'
 
 const Shortener = ({ setUrlLink, shortenList }) => {
   const [isEmpty, setIsEmpty] = useState(false)
-  const [validURL, setValidURL] = useState(true)
   const [urlInput, setUrlInput] = useState('')
   const [invalidMessage, setInvalidMessage] = useState(false)
+  const validURLRef = useRef(null)
 
+  function handleClick() {
+    setInvalidMessage(false)
+    setIsEmpty(false)
 
-  function handleClick(ref) {
     if (urlInput === '') {
       setIsEmpty(true)
     } else {
-      setIsEmpty(false)
-    }
-    
-    setValidURL(validateURL(urlInput))
-    if (validURL) {
-      setUrlLink(urlInput)
-    }
+      validURLRef.current = validateURL(urlInput)
 
-    if (!validURL && !isEmpty) {
-      setInvalidMessage(true)
-    } else {
-      setInvalidMessage(false)
+      if (validURLRef.current) {
+        setUrlLink(urlInput)
+      } else {
+        setInvalidMessage(true)
+      }
     }
   }
 
@@ -41,7 +38,7 @@ const Shortener = ({ setUrlLink, shortenList }) => {
   return (
     <div id='get-sterted' className=' w-full relative'>
       <div className='w-full bg-shorten-mobile sm:bg-shorten-desktop bg-cover bg-dark-violet-100 px-6 py-8 sm:p-10 rounded-lg absolute -top-[70px]'>
-        <div className='flex flex-col sm:flex-row gap-4'>
+        <div className='flex flex-col sm:flex-row gap-4 items-start'>
           <div className='w-full'>
             <label htmlFor="url-link" className='hidden'>URL link:</label>
             <input 
@@ -50,7 +47,7 @@ const Shortener = ({ setUrlLink, shortenList }) => {
               id="url-link" 
               placeholder='Shorten a link here...' 
               value={urlInput} 
-              className='inputField'
+              className={`inputField ${isEmpty && 'inputFieldError'}`}
               onChange={(e) => {
                 setUrlInput(e.target.value)
               }}
@@ -59,17 +56,18 @@ const Shortener = ({ setUrlLink, shortenList }) => {
                 setInvalidMessage(false)
               }}
             />
+            <div className='mt-2 -mb-4'>
+              {isEmpty && <em className='text-red text-base'>Please add a link</em>}
+              {invalidMessage && <em className='text-red text-base'>Invalid link, please add a correct link</em>}
+            </div>
           </div>
           <Button 
             children={'Shorten it!'}
             onClick={handleClick}
-            styles={'w-full sm:w-[200px] rounded-lg py-3'}
+            styles={'w-full sm:w-[200px] rounded-lg py-[13px]'}
           />
         </div>
-        <div className='mt-2 -mb-2'>
-          {isEmpty && <em className='text-red text-base'>Please add a link</em>}
-          {invalidMessage && <em className='text-red text-base'>Invalid link, please add a correct link</em>}
-        </div>
+        
       </div>
       <div className='flex flex-col gap-6 w-full sm:mt-24 mt-40'>
         {shortenList.length !== 0 && 

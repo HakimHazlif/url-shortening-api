@@ -22,8 +22,13 @@ html {
   }
 
   .inputField {
-    @apply w-full px-5 py-4 border border-solid border-gray rounded-lg placeholder:text-gray placeholder:font-semibold placeholder:text-xl outline-none
+    @apply w-full px-5 py-3 border border-solid border-gray rounded-lg placeholder:text-gray placeholder:font-semibold placeholder:text-xl text-lg sm:text-xl outline-none 
   }
+
+  .inputFieldError {
+    @apply border-red border-4 py-[10px] placeholder:text-red
+  }
+
 
   .text-li {
     @apply text-base text-grayish-violet font-medium cursor-pointer hover:text-white duration-200
