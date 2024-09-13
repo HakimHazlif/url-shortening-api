@@ -1,6 +1,7 @@
 import { useRef, useState } from 'react'
 import Button from '../components/Button'
 import ShortenLinkCard from '../components/shortenLinkCard'
+import { validateURL } from '../utils/functions'
 
 const Shortener = ({ setUrlLink, shortenList }) => {
   const [isEmpty, setIsEmpty] = useState(false)
@@ -25,15 +26,6 @@ const Shortener = ({ setUrlLink, shortenList }) => {
     }
   }
 
-
-  function validateURL(url) {
-    try {
-      new URL(url);
-      return true;
-    } catch (err) {
-      return false;
-    }
-  }
 
   return (
     <div id='get-sterted' className=' w-full relative'>
